@@ -1,4 +1,4 @@
-🚀 Flagship Django REST API: Task Manager
+#🚀 Flagship Django REST API: Task Manager
 
 This project serves as a production-ready backend blueprint for a secure, containerized Task Management API, demonstrating industry best practices.
 
