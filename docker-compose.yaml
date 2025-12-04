@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  # The Django web application container
+  web:
+    build: .
+    # Note: For production, you would use a dedicated WSGI server like Gunicorn
+    command: sh -c "python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - .:/usr/src/app
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    depends_on:
+      - db
+
+  # The PostgreSQL database container
+  db:
+    image: postgres:16-alpine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    env_file:
+      - .env
+    # Expose port 5432 for external tools if needed, though 'web' accesses it internally
+    ports:
+      - "5432:5432"
+
+volumes:
+  # Volume for persistent database storage
+  postgres_data:

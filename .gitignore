@@ -1,0 +1,22 @@
+# Byte-compiled / optimized / DLL files
+
+pycache/ *.pyc *.pyd *.pyo *.pylintrc
+
+# Distribution / packaging
+
+.Python env/ venv/ pip-log.txt pip-delete-this-directory.txt dist/ build/ *.egg-info/ .coverage
+
+# Databases and secrets
+
+*.sqlite3
+.env
+db.sqlite3
+
+# Docker files
+
+docker-compose.override.yml
+docker-compose.local.yml
+
+# IDE files
+
+.vscode/ .idea/ *~
